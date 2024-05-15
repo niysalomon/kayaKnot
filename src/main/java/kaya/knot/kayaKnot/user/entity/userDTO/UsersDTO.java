@@ -27,5 +27,5 @@ public class UsersDTO {
     private String password;
     private String profilePicture;
 
-    private long userType;
+    private String userType;
 }

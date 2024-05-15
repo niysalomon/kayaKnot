@@ -1,6 +1,7 @@
 package kaya.knot.kayaKnot.user.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import kaya.knot.kayaKnot.user.entity.UserType;
 import kaya.knot.kayaKnot.user.entity.Users;
 import kaya.knot.kayaKnot.user.entity.userDTO.UsersDTO;
 import kaya.knot.kayaKnot.user.repo.UserTypeRepo;
@@ -9,11 +10,10 @@ import kaya.knot.kayaKnot.user.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -60,4 +60,22 @@ public class UserRestController {
         }
 
     }
+    @RequestMapping(value = "/get_users", method = RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> getUsers(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            List<Users> fetchedUsers=usersService.fetchAllUsers();
+            map.put("message","users fetched successful");
+            map.put("fetchedUsers",fetchedUsers);
+            return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+
+        } catch (Exception e) {
+             e.printStackTrace();
+            map.put("error", "users not fetched successful");
+            map.put("message", e);
+            return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+        }
+
+
+}
 }

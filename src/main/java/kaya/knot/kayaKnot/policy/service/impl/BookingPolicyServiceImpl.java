@@ -12,24 +12,24 @@ import java.util.Optional;
 @Service
 public class BookingPolicyServiceImpl implements BookingPolicyService {
     @Autowired
-    private BookingPolicyRepo bookingRepo;
+    private BookingPolicyRepo bookingPolicyRepo;
     @Override
     public BookingPolicy createNewBookingPolicy(BookingPolicy bookingPolicy) {
-        return bookingRepo.save(bookingPolicy);
+        return bookingPolicyRepo.save(bookingPolicy);
     }
 
     @Override
     public List<BookingPolicy> fetchingBookingPolicy() {
-        return bookingRepo.findAll();
+        return bookingPolicyRepo.findAll();
     }
 
     @Override
     public Optional<BookingPolicy> fetchingBookingPolicyById(final String id) {
-        return bookingRepo.findById(id);
+        return bookingPolicyRepo.findById(id);
     }
 
     @Override
     public BookingPolicy updateBookingPolicy(BookingPolicy bookingPolicy) {
-        return bookingRepo.save(bookingPolicy);
+        return bookingPolicyRepo.save(bookingPolicy);
     }
 }

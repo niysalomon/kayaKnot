@@ -27,16 +27,17 @@ public class UserTypeController {
             UserType userType= new UserType();
             userType.setUserType(userTypeDTO.getUserType());
             userTypeService.createNewUserType(userType);
-            map.put("saved", userType);
-            map.put("saved", "userType");
-            map.put("message", "successful");
+            map.put("data", userType);
+            map.put("status", "success");
+            map.put("message", "user type created successful");
 
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 
         }
         catch (Exception e) {
             map.put("message", e);
-            // e.printStackTrace();
+            map.put("status", "fail");
+             e.printStackTrace();
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
         }
         }
@@ -51,8 +52,9 @@ public class UserTypeController {
                 return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 
             } catch (Exception e) {
-                // e.printStackTrace();
+                 e.printStackTrace();
                 map.put("message", e);
+                map.put("status", "fail");
                 return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
             }
 

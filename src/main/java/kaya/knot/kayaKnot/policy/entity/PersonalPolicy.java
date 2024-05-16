@@ -1,6 +1,8 @@
 package kaya.knot.kayaKnot.policy.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import kaya.knot.kayaKnot.user.entity.Users;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +25,10 @@ public class PersonalPolicy {
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
     private String personalPolicy;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonManagedReference
+    private Users userId;
     private boolean isDeleted;
     @Column(name = "createdDate")
     @CreatedDate

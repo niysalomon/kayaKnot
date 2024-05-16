@@ -46,15 +46,16 @@ public class UserRestController {
             users.setProfilePicture("usersDTO.getPassword()");
             System.out.println("================"+usersDTO.getUserType());
             usersService.createNewUser(users);
-            map.put("saved", users);
-            map.put("saved", "users");
-            map.put("message", "successful");
+            map.put("data", users);
+            map.put("message", "user created successful");
+            map.put("status", "success");
 
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 
         }
         catch (Exception e) {
             map.put("message", e);
+            map.put("status", "fail");
             // e.printStackTrace();
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
         }
@@ -65,17 +66,37 @@ public class UserRestController {
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             List<Users> fetchedUsers=usersService.fetchAllUsers();
+            map.put("data",fetchedUsers);
             map.put("message","users fetched successful");
-            map.put("fetchedUsers",fetchedUsers);
+            map.put("status", "success");
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 
         } catch (Exception e) {
              e.printStackTrace();
-            map.put("error", "users not fetched successful");
             map.put("message", e);
+            map.put("status", "fail");
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
         }
+}
 
 
-}
-}
+@GetMapping("get_single_user/{user_id}")
+    public ResponseEntity<Map<String,Object>> getSingleUser(@PathVariable("user_id") String user_id,HttpServletRequest request){
+        Map<String,Object> map= new HashMap<>();
+        try {
+            Users users=usersService.fetchUserById(user_id);
+            map.put("data",users);
+            map.put("message","user fetched successful");
+            map.put("status","success");
+            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+
+
+        }
+        catch (Exception e){
+            map.put("status","fail");
+            map.put("message",e);
+            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.BAD_REQUEST);
+        }
+
+    }
+    }

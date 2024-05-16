@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UsersService {
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UsersService {
     }
 
     @Override
-    public Optional<Users> fetchUserById(String id) {
-        return userRepo.findById(id);
+    public Users fetchUserById(String id) {
+        return userRepo.findUserById(id);
     }
 }

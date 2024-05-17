@@ -24,12 +24,12 @@ public class PersonalPolicyServiceImpl implements PersonalPolicyService {
     }
 
     @Override
-    public Optional<PersonalPolicy> fetchPersonalPolicyById(final String id) {
-        return personalPolicyRepo.findById(id);
+    public PersonalPolicy fetchPersonalPolicyById(final String id) {
+        return personalPolicyRepo.fetchPersonalSinglePolicyById(id);
     }
 
     @Override
     public List<PersonalPolicy> fetchPersonalPolicyByUser(String user_id) {
-        return null;
+        return personalPolicyRepo.fetchPersonalSinglePolicyByUser(user_id);
     }
 }

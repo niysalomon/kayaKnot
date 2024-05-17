@@ -30,6 +30,7 @@ public class PersonalPolicy {
     @JsonManagedReference
     private Users userId;
     private boolean isDeleted;
+    private boolean isActive;
     @Column(name = "createdDate")
     @CreatedDate
     private Timestamp createdDate;

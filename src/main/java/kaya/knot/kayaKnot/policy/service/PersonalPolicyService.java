@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface PersonalPolicyService {
     PersonalPolicy createNewPersonalPolicy(PersonalPolicy personalPolicy);
     PersonalPolicy updatePersonalPolicy(PersonalPolicy personalPolicy);
-    Optional<PersonalPolicy> fetchPersonalPolicyById(final String id);
+  PersonalPolicy fetchPersonalPolicyById(final String id);
     List<PersonalPolicy> fetchPersonalPolicyByUser(String user_id);
 
 

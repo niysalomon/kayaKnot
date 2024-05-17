@@ -24,12 +24,14 @@ public class UserRestriction {
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
     private String pet;
+    private String cat;
     private String noise;
     private String smoke;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     @JsonManagedReference
     private Users userId;
+    private boolean isActive;
     private boolean isDeleted;
     @Column(name = "createdDate")
     @CreatedDate

@@ -1,6 +1,9 @@
 package kaya.knot.kayaKnot.policy.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,17 +14,19 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
+
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class SystemBookingPolicy {
+public class SystemCancellationPolicy {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
-    private String bookingPolicy;
+    private String systemCancellationPolicy;
     private boolean isDeleted;
     private boolean isActive;
     @Column(name = "createdDate")

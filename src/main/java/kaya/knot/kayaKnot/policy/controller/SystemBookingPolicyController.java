@@ -25,6 +25,8 @@ public class SystemBookingPolicyController {
         try {
             SystemBookingPolicy systemBookingPolicy = new SystemBookingPolicy();
             systemBookingPolicy.setBookingPolicy(systemBookingPolicyDTO.getBookingPolicy());
+            systemBookingPolicy.setActive(true);
+            systemBookingPolicy.setDeleted(false);
             systemBookingPolicyService.createNewSystemPolicy(systemBookingPolicy);
             map.put("status","success");
             map.put("message","system policy created successful");
@@ -78,6 +80,27 @@ public class SystemBookingPolicyController {
             map.put("message", e);
             map.put("status", "fail");
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("get_single_system_booking_policy/{id}")
+    public ResponseEntity<Map<String,Object>> fetchSingleBookingSystemPolicy(@PathVariable("id") String id, HttpServletRequest request){
+        Map<String,Object> map= new HashMap<>();
+        try {
+            SystemBookingPolicy systemBookingPolicy=systemBookingPolicyService.fetchSinglePolicy(id);
+            map.put("data",systemBookingPolicy);
+            map.put("message","system policy fetched successful");
+            map.put("status","success");
+            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            map.put("message", e);
+            map.put("status", "fail");
+            return new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+
         }
     }
 

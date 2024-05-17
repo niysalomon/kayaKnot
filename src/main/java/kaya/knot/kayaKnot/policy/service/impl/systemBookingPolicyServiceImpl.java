@@ -29,6 +29,6 @@ public class systemBookingPolicyServiceImpl implements SystemBookingPolicyServic
 
     @Override
     public SystemBookingPolicy fetchSinglePolicy(String id) {
-        return systemBookingPolicyRepo.fetchSystemPolicy(id);
+        return systemBookingPolicyRepo.fetchSystemSinglePolicy(id);
     }
 }

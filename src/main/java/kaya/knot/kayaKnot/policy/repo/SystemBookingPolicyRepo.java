@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SystemBookingPolicyRepo extends JpaRepository<SystemBookingPolicy,String> {
     @Query(value = "SELECT * FROM system_booking_policy WHERE is_deleted=0 and is_active=1 and id=:id", nativeQuery = true)
-    public SystemBookingPolicy fetchSystemPolicy(String id);
+    public SystemBookingPolicy fetchSystemSinglePolicy(String id);
 
 
 

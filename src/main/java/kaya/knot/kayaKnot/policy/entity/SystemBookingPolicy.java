@@ -22,7 +22,6 @@ public class SystemBookingPolicy {
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
     private String bookingPolicy;
-    private String cancellationPolicy;
     @Column(name = "createdDate")
     @CreatedDate
     private Timestamp createdDate;

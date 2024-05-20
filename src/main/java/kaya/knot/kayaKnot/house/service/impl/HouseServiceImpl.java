@@ -11,13 +11,34 @@ import java.util.List;
 public class HouseServiceImpl implements HouseService {
     @Autowired
     private HouseRepo houseRepo;
+
     @Override
-    public void createNewHouse(House house) {
-        houseRepo.save(house);
+    public House createNewHouse(House house) {
+        return houseRepo.save(house);
+    }
+
+    @Override
+    public House updateHouse(House house) {
+        return houseRepo.save(house);
+    }
+
+    @Override
+    public House fetchHouseById(String id) {
+        return houseRepo.findHouseById(id);
     }
 
     @Override
     public List<House> fetchingAllHouse() {
-        return houseRepo.findAll();
+        return houseRepo.findAllHouse();
+    }
+
+    @Override
+    public List<House> fetchHouseByLandLord(String land_lord) {
+        return houseRepo.findHouseByLandLord(land_lord);
+    }
+
+    @Override
+    public List<House> fetchHouseByHouseType(String house_type) {
+        return houseRepo.findHouseByHouseType(house_type);
     }
 }

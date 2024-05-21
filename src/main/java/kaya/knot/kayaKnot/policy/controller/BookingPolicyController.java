@@ -3,24 +3,17 @@ package kaya.knot.kayaKnot.policy.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import kaya.knot.kayaKnot.policy.entity.BookingPolicy;
 import kaya.knot.kayaKnot.policy.entity.dto.BookingPolicyDTO;
-import kaya.knot.kayaKnot.policy.repo.BookingPolicyRepo;
 import kaya.knot.kayaKnot.policy.service.BookingPolicyService;
-import kaya.knot.kayaKnot.user.entity.Users;
-import kaya.knot.kayaKnot.user.entity.userDTO.UserTypeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 public class BookingPolicyController {
     @Autowired
     private BookingPolicyService bookingPolicyService;

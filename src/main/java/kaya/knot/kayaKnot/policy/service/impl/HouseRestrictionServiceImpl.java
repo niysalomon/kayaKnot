@@ -24,17 +24,12 @@ public class HouseRestrictionServiceImpl implements HouseRestrictionService {
     }
 
     @Override
-    public Optional<HouseRestriction> fetchHouseRestrictionById(final String id) {
-        return houseRestrictionRepo.findById(id);
-    }
-
-    @Override
-    public List<HouseRestriction> fetchAllHouseRestrictions() {
-        return houseRestrictionRepo.findAll();
+    public HouseRestriction fetchHouseRestrictionById(final String id) {
+        return houseRestrictionRepo.fetchSingleHouseRestriction(id);
     }
 
     @Override
     public List<HouseRestriction> fetchRestrictionByHouse(String house_id) {
-        return null;
+        return houseRestrictionRepo.fetchSingleHouseRestrictionByHouse(house_id);
     }
 }

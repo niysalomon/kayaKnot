@@ -1,9 +1,7 @@
 package kaya.knot.kayaKnot.policy.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kaya.knot.kayaKnot.policy.entity.PersonalPolicy;
 import kaya.knot.kayaKnot.policy.entity.UserRestriction;
-import kaya.knot.kayaKnot.policy.entity.dto.PersonalPolicyDTO;
 import kaya.knot.kayaKnot.policy.entity.dto.UserRestrictionDTO;
 import kaya.knot.kayaKnot.policy.service.UserRestrictionService;
 import kaya.knot.kayaKnot.user.service.UsersService;

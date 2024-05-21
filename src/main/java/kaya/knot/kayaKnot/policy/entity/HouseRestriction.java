@@ -27,10 +27,12 @@ public class HouseRestriction {
     private String pet;
     private String noise;
     private String smoke;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "house_id", nullable = false)
     @JsonManagedReference
     private House houseId;
+    private boolean isActive;
     private boolean isDeleted;
     @Column(name = "createdDate")
     @CreatedDate

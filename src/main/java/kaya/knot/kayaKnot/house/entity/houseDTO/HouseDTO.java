@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class HouseDTO {
+    private String id ;
     private String houseName;
     private String landLordId;
     private String houseType;

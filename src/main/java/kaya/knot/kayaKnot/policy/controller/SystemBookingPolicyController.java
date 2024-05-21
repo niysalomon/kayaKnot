@@ -1,10 +1,8 @@
 package kaya.knot.kayaKnot.policy.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kaya.knot.kayaKnot.policy.entity.CancellationPolicy;
 import kaya.knot.kayaKnot.policy.entity.SystemBookingPolicy;
 import kaya.knot.kayaKnot.policy.entity.dto.SystemBookingPolicyDTO;
-import kaya.knot.kayaKnot.policy.repo.SystemBookingPolicyRepo;
 import kaya.knot.kayaKnot.policy.service.SystemBookingPolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

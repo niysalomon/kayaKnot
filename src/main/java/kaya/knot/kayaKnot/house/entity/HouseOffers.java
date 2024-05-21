@@ -29,7 +29,7 @@ public class HouseOffers {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "offer", nullable = false)
     @JsonManagedReference
-    private Offers offers;
+    private Offers offer;
     @Column(name = "is_deleted", columnDefinition = "boolean default false")
     private boolean isDeleted;
     @Column(name = "is_active", columnDefinition = "boolean default true")

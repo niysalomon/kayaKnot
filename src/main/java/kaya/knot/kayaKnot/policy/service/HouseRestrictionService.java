@@ -8,8 +8,7 @@ import java.util.Optional;
 public interface HouseRestrictionService {
     HouseRestriction createNewHouseRestriction(HouseRestriction houseRestriction);
     HouseRestriction updateHouseRestriction(HouseRestriction houseRestriction);
-     Optional<HouseRestriction> fetchHouseRestrictionById(final String id);
-     List<HouseRestriction> fetchAllHouseRestrictions();
+     HouseRestriction fetchHouseRestrictionById(final String id);
 
      List<HouseRestriction> fetchRestrictionByHouse(String house_id);
 

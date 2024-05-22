@@ -2,6 +2,7 @@ package kaya.knot.kayaKnot.booking.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import kaya.knot.kayaKnot.house.entity.House;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,22 +18,20 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserBookingJoin {
+public class HouseStatus {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "booking_id", nullable = false)
+    @JoinColumn(name = "house_id", nullable = false)
     @JsonManagedReference
-    private Booking bookingId;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "renting_id", nullable = false)
-    @JsonManagedReference
-    private Renting rentingId;
-    private String renterStatus;
-    private String renterComment;
+    private House houseId;
+    private String landLordConfirmation;
+    private String bookingStatus;
+    private Long price;
+    private String currency;
     private  boolean isActive;
     private boolean isDeleted;
     @Column(name = "createdDate")

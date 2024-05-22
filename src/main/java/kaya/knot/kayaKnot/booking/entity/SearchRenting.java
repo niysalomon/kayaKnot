@@ -19,7 +19,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Renting {
+public class SearchRenting {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")

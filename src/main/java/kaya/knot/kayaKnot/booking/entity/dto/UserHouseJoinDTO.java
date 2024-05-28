@@ -1,4 +1,4 @@
-package kaya.knot.kayaKnot.booking.entity.impl;
+package kaya.knot.kayaKnot.booking.entity.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

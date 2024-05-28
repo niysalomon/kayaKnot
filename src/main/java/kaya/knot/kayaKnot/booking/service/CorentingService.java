@@ -1,11 +1,12 @@
 package kaya.knot.kayaKnot.booking.service;
 
 import kaya.knot.kayaKnot.booking.entity.Corenting;
+import kaya.knot.kayaKnot.booking.entity.dto.CorentingUserHouseDTO;
 
 import java.util.List;
 
 public interface CorentingService {
     Corenting createNewCorenting(Corenting corenting);
-    List<Corenting> fetchCorentingByHouse(String house_id);
+    List<CorentingUserHouseDTO> fetchCorentingByHouse(String house_id);
 
 }

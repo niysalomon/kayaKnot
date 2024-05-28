@@ -2,15 +2,13 @@ package kaya.knot.kayaKnot.booking.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import kaya.knot.kayaKnot.booking.entity.HouseStatus;
-import kaya.knot.kayaKnot.booking.entity.impl.HouseStatusDTO;
+import kaya.knot.kayaKnot.booking.entity.dto.CorentingDTO;
 import kaya.knot.kayaKnot.booking.service.HouseStatusService;
-import kaya.knot.kayaKnot.house.entity.House;
 import kaya.knot.kayaKnot.house.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -24,18 +22,18 @@ public class HouseStatusController {
     @Autowired
     private HouseService houseService;
     @PostMapping("create_new_house_status")
-    public ResponseEntity<Map<String,Object>> createNewHouseType(@RequestBody HouseStatusDTO houseStatusDTO, HttpServletRequest request){
+    public ResponseEntity<Map<String,Object>> createNewHouseType(@RequestBody CorentingDTO corentingDTO, HttpServletRequest request){
         Map<String,Object> map=new HashMap<>();
         try {
             HouseStatus houseStatus=new HouseStatus();
 
-            houseStatus.setCurrency(houseStatusDTO.getCurrency());
+            houseStatus.setCurrency(corentingDTO.getCurrency());
             houseStatus.setLandLordConfirmation("AVAILABLE");
             houseStatus.setBookingStatus("NOT BOOKED");
             houseStatus.setLandLordConfirmation("PENDING");
-            houseStatus.setPrice(houseStatusDTO.getPrice());
+            houseStatus.setPrice(corentingDTO.getPrice());
             houseStatus.setActive(true);
-            houseStatus.setHouseId(houseService.fetchHouseById(houseStatusDTO.getHouseId()));
+            houseStatus.setHouseId(houseService.fetchHouseById(corentingDTO.getHouseId()));
             houseStatusService.createNewHouseStatus(houseStatus);
             map.put("status","success");
             map.put("data",houseStatus);

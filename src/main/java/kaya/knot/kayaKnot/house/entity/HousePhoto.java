@@ -1,5 +1,6 @@
 package kaya.knot.kayaKnot.house.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,14 @@ public class HousePhoto {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
-@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "house_id", nullable = false)
+    @JsonManagedReference
     private House houseId;
-    private Blob housePhoto;
+
+    @Lob
+    @Column(name="house_photo" , columnDefinition = "LONGTEXT")
+    private String housePhoto;
     private boolean isDeleted;
     @Column(name = "createdDate")
     @CreatedDate

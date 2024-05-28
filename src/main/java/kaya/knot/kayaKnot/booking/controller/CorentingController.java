@@ -2,7 +2,8 @@ package kaya.knot.kayaKnot.booking.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import kaya.knot.kayaKnot.booking.entity.Corenting;
-import kaya.knot.kayaKnot.booking.entity.impl.UserHouseJoinDTO;
+import kaya.knot.kayaKnot.booking.entity.dto.CorentingUserHouseDTO;
+import kaya.knot.kayaKnot.booking.entity.dto.UserHouseJoinDTO;
 import kaya.knot.kayaKnot.booking.service.HouseStatusService;
 import kaya.knot.kayaKnot.booking.service.CorentingService;
 import kaya.knot.kayaKnot.user.service.UsersService;
@@ -54,7 +55,7 @@ public class CorentingController {
     public ResponseEntity<Map<String,Object>> getHouseTypeById(@PathVariable("house_id") String house_id, HttpServletRequest request){
         Map<String,Object> map=new HashMap<>();
         try {
-            List<Corenting> corenting=corentingService.fetchCorentingByHouse(house_id);
+            List<CorentingUserHouseDTO> corenting=corentingService.fetchCorentingByHouse(house_id);
             map.put("status","success");
             map.put("data",corenting);
             map.put("message","corenting fetched successful");

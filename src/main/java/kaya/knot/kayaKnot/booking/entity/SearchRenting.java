@@ -40,7 +40,11 @@ public class SearchRenting {
     private String province;
     private String district;
     private String Sector;
-    private String Cell;
+    private String cell;
+    private String village;
+    private boolean isSearching;
+    private boolean isActive;
+    private boolean isDeleted;
     @Column(name = "createdDate")
     @CreatedDate
     private Timestamp createdDate;

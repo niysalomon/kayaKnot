@@ -12,4 +12,7 @@ public class HousePhotoDTO {
     private String id;
     private String houseId;
     private String housePhoto;
+    private String fileName;
+    private String filePath;
+    private String description;
 }

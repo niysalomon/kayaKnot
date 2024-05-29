@@ -17,4 +17,7 @@ public interface HouseStatusRepo extends JpaRepository<HouseStatus,String> {
 
     @Query(value = "SELECT * FROM house_status WHERE id=:id and is_deleted=0 and is_active=1;",nativeQuery = true)
     public HouseStatus fetchHouseStatusById(String id);
+
+    @Query(value = "SELECT * FROM house_status WHERE house_id=:house_id and is_deleted=0 and is_active=1  ORDER BY id DESC limit 1;",nativeQuery = true)
+    public HouseStatus fetchHouseStatusByHouseId(String house_id);
 }

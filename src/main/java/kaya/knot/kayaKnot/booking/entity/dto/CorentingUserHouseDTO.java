@@ -7,15 +7,17 @@ import lombok.Data;
 public class CorentingUserHouseDTO {
     private String corentingId;
     private String renterStatus;
-     private String renterFirstName;
-     private String email;
-     private String houseStatus;
+    private String renterComment;
+     private String renterId;
+     private String houseStatusId;
+     private String houseId;
 
-    public CorentingUserHouseDTO(String corentingId, String renterStatus, String renterFirstName, String email,String houseStatus) {
+    public CorentingUserHouseDTO(String corentingId, String renterStatus, String renterComment, String renterId, String houseStatusId, String houseId) {
         this.corentingId = corentingId;
         this.renterStatus = renterStatus;
-        this.renterFirstName = renterFirstName;
-        this.email = email;
-        this.houseStatus=houseStatus;
+        this.renterComment = renterComment;
+        this.renterId = renterId;
+        this.houseStatusId = houseStatusId;
+        this.houseId = houseId;
     }
 }

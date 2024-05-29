@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class CorentingDTO {
+public class HouseStatusDTO {
     private String id;
     private String  houseId;
     private String landLordConfirmation;

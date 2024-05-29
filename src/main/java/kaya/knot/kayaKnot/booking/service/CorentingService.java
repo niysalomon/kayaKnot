@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface CorentingService {
     Corenting createNewCorenting(Corenting corenting);
-    List<CorentingUserHouseDTO> fetchCorentingByHouse(String house_id);
+    List<CorentingUserHouseDTO> fetchCorentingByHouseStatusId(String house_id);
+    CorentingUserHouseDTO fetchCorentingDetailsByHouse(String house_id);
 
 }

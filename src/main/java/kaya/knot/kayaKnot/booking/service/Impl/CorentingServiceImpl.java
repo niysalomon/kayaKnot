@@ -20,7 +20,12 @@ public class CorentingServiceImpl implements CorentingService {
     }
 
     @Override
-    public List<CorentingUserHouseDTO> fetchCorentingByHouse(String house_id) {
-        return corentingRepo.fetchingHouseAndUser(house_id).stream().distinct().collect(Collectors.toList());
+    public List<CorentingUserHouseDTO> fetchCorentingByHouseStatusId(String status_id) {
+        return corentingRepo.fetchingHouseStatusId(status_id).stream().distinct().collect(Collectors.toList());
+    }
+
+    @Override
+    public CorentingUserHouseDTO fetchCorentingDetailsByHouse(String house_id) {
+        return corentingRepo.fetchingCorentingDetailsByHouse(house_id);
     }
 }

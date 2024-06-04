@@ -40,6 +40,7 @@ public class HouseController {
             house.setCell(houseDTO.getCell());
             house.setVillage(houseDTO.getVillage());
             house.setDescription(houseDTO.getDescription());
+            house.setLocation(houseDTO.getLocation());
             house.setFurnished(houseDTO.isFurnished());
             house.setLandLordId(usersService.fetchUserById(houseDTO.getLandLordId()));
             houseService.createNewHouse(house);

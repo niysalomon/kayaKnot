@@ -38,8 +38,9 @@ public class UserRestController {
             users.setLastName(usersDTO.getLastName());
             users.setLandLord(usersDTO.isLandLord());
             users.setGender(usersDTO.getGender());
-            users.setNidPassport(usersDTO.getNidPassport());
             users.setNationality(usersDTO.getNationality());
+            users.setIdentityType(usersDTO.getIdentityType());
+            users.setNidPassport(usersDTO.getNidPassport());
             users.setPhone(usersDTO.getPhone());
             users.setPassword( usersDTO.getPassword());
             users.setUserType(userTypeService.getUserTypeById(usersDTO.getUserType()));

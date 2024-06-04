@@ -11,8 +11,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.sql.Timestamp;
-import java.util.Optional;
+import java.sql.Timestamp; 
 
 @Entity
 @Getter
@@ -33,6 +32,7 @@ public class Users {
     private String phone;
     private String email;
     private String nationality;
+    private String identityType;
     private String nidPassport;
     private boolean isLandLord;
     private String password;

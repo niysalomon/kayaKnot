@@ -23,6 +23,7 @@ public class HouseDTO {
     private int parkingCars;
     private boolean isAvailable;
     private String description;
+    private String street;
     private String location;
     private String longitude;
     private String latitude;

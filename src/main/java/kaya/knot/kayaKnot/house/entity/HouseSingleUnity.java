@@ -1,12 +1,8 @@
-package kaya.knot.kayaKnot.booking.entity;
+package kaya.knot.kayaKnot.house.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import kaya.knot.kayaKnot.house.entity.House;
-import kaya.knot.kayaKnot.house.entity.HouseSingleUnity;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,20 +11,17 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-public class HouseStatus {
+public class HouseSingleUnity {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "houseSingleUnity_id", nullable = false)
-    @JsonManagedReference
-    private HouseSingleUnity houseSingleUnity;
+    private String unityName;
+    private String referenceNumber;
+    private String unityStatus;
+    private boolean isAvailable;
+    private House houseId;
     private String landLordConfirmation;
     private String bookingStatus;
     private Long price;
@@ -50,5 +43,4 @@ public class HouseStatus {
     @Column(name = "lastUpdatedBy")
     @LastModifiedBy
     private long lastUpdatedBy;
-
 }

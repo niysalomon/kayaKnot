@@ -10,14 +10,14 @@ public class CorentingUserHouseDTO {
     private String renterComment;
      private String renterId;
      private String houseStatusId;
-     private String houseId;
+     private String houseSingleUnity;
 
-    public CorentingUserHouseDTO(String corentingId, String renterStatus, String renterComment, String renterId, String houseStatusId, String houseId) {
+    public CorentingUserHouseDTO(String corentingId, String renterStatus, String renterComment, String renterId, String houseStatusId, String houseSingleUnity) {
         this.corentingId = corentingId;
         this.renterStatus = renterStatus;
         this.renterComment = renterComment;
         this.renterId = renterId;
         this.houseStatusId = houseStatusId;
-        this.houseId = houseId;
+        this.houseSingleUnity = houseSingleUnity;
     }
 }

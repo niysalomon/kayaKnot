@@ -31,8 +31,6 @@ public class HouseController {
             house.setHouseType(houseTypeService.fetchHouseById(houseDTO.getHouseType()));
             house.setHouseName(houseDTO.getHouseName());
             house.setAvailable(houseDTO.isAvailable());
-            house.setBathrooms(houseDTO.getBathrooms());
-            house.setBedrooms(houseDTO.getBedrooms());
             house.setActive(true);
             house.setProvince(houseDTO.getProvince());
             house.setDistrict(houseDTO.getDistrict());
@@ -68,8 +66,6 @@ public class HouseController {
             house.setId(houseDTO.getId());
             house.setHouseName(houseDTO.getHouseName());
             house.setAvailable(houseDTO.isAvailable());
-            house.setBathrooms(houseDTO.getBathrooms());
-            house.setBedrooms(houseDTO.getBedrooms());
             house.setProvince(houseDTO.getProvince());
             house.setDistrict(houseDTO.getDistrict());
             house.setSector(houseDTO.getSector());

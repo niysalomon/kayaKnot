@@ -26,8 +26,8 @@ public class HouseStatusServiceImpl implements HouseStatusService {
     }
 
     @Override
-    public HouseStatus fetchHouseStatusByHouse(String house_id) {
-        return houseStatusRepo.fetchHouseStatusByHouseId(house_id);
+    public HouseStatus fetchHouseStatusByHouse(String unity_id) {
+        return houseStatusRepo.fetchHouseStatusByHouseUnityId(unity_id);
     }
 
     @Override

@@ -25,8 +25,9 @@ public class HouseStatus {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
+    private String houseUnity;// main ,unity
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "houseSingleUnity_id", nullable = false)
+    @JoinColumn(name = "house_single_unity", nullable = false)
     @JsonManagedReference
     private HouseSingleUnity houseSingleUnity;
     private String landLordConfirmation;

@@ -45,7 +45,7 @@ public class UserRestController {
             users.setPassword( usersDTO.getPassword());
             users.setUserType(userTypeService.getUserTypeById(usersDTO.getUserType()));
             users.setEmail(usersDTO.getEmail());
-            users.setActive(true);
+              users.setActive(true);
             users.setDeleted(false);
             users.setProfilePicture("usersDTO.getPassword()");
             System.out.println("================"+usersDTO.getUserType());

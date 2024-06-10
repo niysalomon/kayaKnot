@@ -100,7 +100,7 @@ public class CorentingController {
 //            map.put("houseDetails",houseService.fetchHouseById(corenting.get(0).getHouseId()));
             map.put("usersList",usersList);
             map.put("houseStatus",houseStatusService.fetchHouseStatusById(corenting.get(0).getHouseStatusId()));
-            map.put("housePhoto",housePhotoService.getHousePhotoByHouse(corenting.get(0).getHouseId()));
+            map.put("housePhoto",housePhotoService.getHousePhotoByHouse(corenting.get(0).getHouseSingleUnity()));
             map.put("message", "corenting fetched successful");
             return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 

@@ -5,6 +5,7 @@ import kaya.knot.kayaKnot.booking.entity.HouseStatus;
 import kaya.knot.kayaKnot.booking.entity.dto.HouseStatusDTO;
 import kaya.knot.kayaKnot.booking.service.HouseStatusService;
 import kaya.knot.kayaKnot.house.service.HouseService;
+import kaya.knot.kayaKnot.house.service.HouseSingleUnityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,8 @@ public class HouseStatusController {
     private HouseStatusService houseStatusService;
     @Autowired
     private HouseService houseService;
+    @Autowired
+    private HouseSingleUnityService houseSingleUnityService;
     @PostMapping("create_new_house_status")
     public ResponseEntity<Map<String,Object>> createNewHouseType(@RequestBody HouseStatusDTO houseStatusDTO, HttpServletRequest request){
         Map<String,Object> map=new HashMap<>();
@@ -35,7 +38,7 @@ public class HouseStatusController {
             houseStatus.setLandLordConfirmation("PENDING");
             houseStatus.setPrice(houseStatusDTO.getPrice());
             houseStatus.setActive(true);
-            houseStatus.setHouseId(houseService.fetchHouseById(houseStatusDTO.getHouseId()));
+            houseStatus.setHouseSingleUnity(houseSingleUnityService.fetchUnityHouseById(houseStatusDTO.getHouseSingleUnity()));
             houseStatusService.createNewHouseStatus(houseStatus);
             map.put("status","success");
             map.put("data",houseStatus);

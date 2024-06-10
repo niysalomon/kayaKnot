@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class HouseStatusDTO {
     private String id;
-    private String  houseId;
+    private String  houseSingleUnity;
     private String landLordConfirmation;
     private String bookingStatus;
     private Long price;

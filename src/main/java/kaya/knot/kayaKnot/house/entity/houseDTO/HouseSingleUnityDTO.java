@@ -1,7 +1,5 @@
 package kaya.knot.kayaKnot.house.entity.houseDTO;
 
-import jakarta.persistence.Column;
-import kaya.knot.kayaKnot.house.entity.House;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class HouseSingleUnity {
+public class HouseSingleUnityDTO {
     private String id;
     private String unityName;
     private String referenceNumber;

@@ -41,10 +41,7 @@ import java.sql.Timestamp;
         private String street;
         @Column(name = "is_furnished", columnDefinition = "boolean default false")
         private boolean isFurnished;
-        @Column(name = "bedrooms", columnDefinition = "boolean default 0")
-        private int bedrooms;
-        @Column(name = "bathrooms", columnDefinition = "boolean default 0")
-        private int bathrooms;
+
         @Column(name = "parking_cars", columnDefinition = "boolean default 0")
         private int parkingCars;
         private boolean isAvailable;

@@ -1,9 +1,7 @@
-package kaya.knot.kayaKnot.booking.entity;
+package kaya.knot.kayaKnot.house.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import kaya.knot.kayaKnot.house.entity.House;
-import kaya.knot.kayaKnot.house.entity.HouseSingleUnity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,26 +12,34 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class HouseStatus {
+public class HouseSingleUnity {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id", unique = true, updatable = false, nullable = false)
     private String id;
-    private String houseUnity;// main ,unity
+    private String unityName;
+    private String referenceNumber;
+    private String unityStatus;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "house_single_unity", nullable = false)
+    @JoinColumn(name = "house_id", nullable = false)
     @JsonManagedReference
-    private HouseSingleUnity houseSingleUnity;
-    private String landLordConfirmation;
-    private String bookingStatus;
-    private Long price;
-    private String currency;
+    private House houseId;
+    private String unityType; //Commercial,house part, single apartment, shop, office, or residential to display more details
+    @Column(name = "bedrooms", columnDefinition = "boolean default 0")
+    private int bedrooms;
+    @Column(name = "bathrooms", columnDefinition = "boolean default 0")
+    private int bathrooms;
+
+    @Column(name = "salon", columnDefinition = "boolean default 0")
+    private int salons;
+    @Column(name = "dinning_room", columnDefinition = "boolean default 0")
+    private int dinningRooms;
+    private String description;
     private  boolean isActive;
     private boolean isDeleted;
     @Column(name = "createdDate")
@@ -51,5 +57,4 @@ public class HouseStatus {
     @Column(name = "lastUpdatedBy")
     @LastModifiedBy
     private long lastUpdatedBy;
-
 }

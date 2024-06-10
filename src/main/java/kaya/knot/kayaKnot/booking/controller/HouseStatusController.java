@@ -2,14 +2,15 @@ package kaya.knot.kayaKnot.booking.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import kaya.knot.kayaKnot.booking.entity.HouseStatus;
-import kaya.knot.kayaKnot.booking.entity.impl.HouseStatusDTO;
+import kaya.knot.kayaKnot.booking.entity.dto.HouseStatusDTO;
 import kaya.knot.kayaKnot.booking.service.HouseStatusService;
-import kaya.knot.kayaKnot.house.entity.House;
 import kaya.knot.kayaKnot.house.service.HouseService;
+import kaya.knot.kayaKnot.house.service.HouseSingleUnityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,8 @@ public class HouseStatusController {
     private HouseStatusService houseStatusService;
     @Autowired
     private HouseService houseService;
+    @Autowired
+    private HouseSingleUnityService houseSingleUnityService;
     @PostMapping("create_new_house_status")
     public ResponseEntity<Map<String,Object>> createNewHouseType(@RequestBody HouseStatusDTO houseStatusDTO, HttpServletRequest request){
         Map<String,Object> map=new HashMap<>();
@@ -35,7 +38,7 @@ public class HouseStatusController {
             houseStatus.setLandLordConfirmation("PENDING");
             houseStatus.setPrice(houseStatusDTO.getPrice());
             houseStatus.setActive(true);
-            houseStatus.setHouseId(houseService.fetchHouseById(houseStatusDTO.getHouseId()));
+            houseStatus.setHouseSingleUnity(houseSingleUnityService.fetchUnityHouseById(houseStatusDTO.getHouseSingleUnity()));
             houseStatusService.createNewHouseStatus(houseStatus);
             map.put("status","success");
             map.put("data",houseStatus);
@@ -52,24 +55,42 @@ public class HouseStatusController {
         }
     }
 
-//    @PostMapping("fetch_houseStatus_by_house/{id}")
-//    public ResponseEntity<Map<String,Object>> getHouseTypeById(@PathVariable("id") String id, HttpServletRequest request){
-//        Map<String,Object> map=new HashMap<>();
-//        try {
-//            HouseStatus houseStatus=houseStatusService.
-//            map.put("status","success");
-//            map.put("data",house);
-//            map.put("message","house fetched successful");
-//            return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
-//
-//        }
-//        catch (Exception e){
-//            map.put("status", "fail");
-//            map.put("message", e);
-//            e.printStackTrace();
-//            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.BAD_REQUEST);
-//
-//        }
-//    }
+    @GetMapping("fetch_houseStatus_by_id/{id}")
+    public ResponseEntity<Map<String,Object>> getHouseStatusById(@PathVariable("id") String id, HttpServletRequest request){
+        Map<String,Object> map=new HashMap<>();
+        try {
+            HouseStatus houseStatus=houseStatusService.fetchHouseStatusById(id);
+            map.put("status","success");
+            map.put("data",houseStatus);
+            map.put("message","house fetched successful");
+            return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+        }
+        catch (Exception e){
+            map.put("status", "fail");
+            map.put("message", e);
+            e.printStackTrace();
+            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.BAD_REQUEST);
+
+        }
+    }
+
+    @GetMapping("fetch_houseStatus_by_house/{house_id}")
+    public ResponseEntity<Map<String,Object>> getHouseStatusByUserId(@PathVariable("house_id") String house_id, HttpServletRequest request){
+        Map<String,Object> map=new HashMap<>();
+        try {
+            HouseStatus houseStatus=houseStatusService.fetchHouseStatusByHouse(house_id);
+            map.put("status","success");
+            map.put("data",houseStatus);
+            map.put("message","house fetched successful");
+            return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+        }
+        catch (Exception e){
+            map.put("status", "fail");
+            map.put("message", e);
+            e.printStackTrace();
+            return new ResponseEntity<Map<String,Object>>(map,HttpStatus.BAD_REQUEST);
+
+        }
+    }
 
 }

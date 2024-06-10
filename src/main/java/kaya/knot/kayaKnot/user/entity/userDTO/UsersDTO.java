@@ -22,6 +22,7 @@ public class UsersDTO {
     private String phone;
     private String email;
     private String nationality;
+    private String identityType;
     private String nidPassport;
     private boolean isLandLord;
     private String password;

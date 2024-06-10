@@ -29,8 +29,8 @@ public class PersonalPolicyController {
         try {
             PersonalPolicy personalPolicy= new PersonalPolicy();
             personalPolicy.setPersonalPolicy(personalPolicyDTO.getPersonalPolicy());
+            personalPolicy.setActive(true);
             personalPolicy.setUserId(usersService.fetchUserById(personalPolicyDTO.getUserId()));
-
 
             personalPolicyService.createNewPersonalPolicy(personalPolicy);
             map.put("status","success");

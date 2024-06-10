@@ -2,8 +2,8 @@ package kaya.knot.kayaKnot.house.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import kaya.knot.kayaKnot.user.entity.Users;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
@@ -49,4 +49,6 @@ public class HouseOffers {
     @Column(name = "lastUpdatedBy")
     @LastModifiedBy
     private String lastUpdatedBy;
+
+
 }

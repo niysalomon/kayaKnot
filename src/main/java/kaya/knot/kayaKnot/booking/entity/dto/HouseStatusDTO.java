@@ -1,6 +1,5 @@
-package kaya.knot.kayaKnot.booking.entity.impl;
+package kaya.knot.kayaKnot.booking.entity.dto;
 
-import kaya.knot.kayaKnot.house.entity.House;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class HouseStatusDTO {
     private String id;
-    private String  houseId;
+    private String  houseSingleUnity;
     private String landLordConfirmation;
     private String bookingStatus;
     private Long price;
